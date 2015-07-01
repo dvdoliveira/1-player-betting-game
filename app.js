@@ -1,4 +1,5 @@
-// jQuery for page scrolling feature - requires jQuery Easing plugin
+// jQuery to control game logic
+// Also jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
     playerCash = 100;
 
@@ -7,7 +8,8 @@ $(function() {
         $('.money').text(playerCash);
     };
 
-    var showResults = function () {
+    //Reload the bet options to the player
+    var newMatch = function () {
         $('.number-label').hide();
         $('.btn-guess').hide();
         $('.bet-label').show();
@@ -15,35 +17,40 @@ $(function() {
         $('.score-label').show();  
     };
 
-    //Compare the choices of the players
+    //Compare the choice of the player with the computer choice and update results
     var compareResults = function(player1Choice, player2Choice) {
         if (player1Choice === player2Choice) {
             var win = playerBet * 2;
             playerCash = playerCash + win;
             updatePlayerCash();
-            $('<h2 class="message">').appendTo(".intro-body").text("Nice play! You won $" + win).css('color', 'green');
-            showResults();          
-            // alert("Computer choice was: " + player1Choice + ". Your choice was: " + player2Choice + ". Nice play! You won $" + win + ". Your cash is now $" + playerCash);
-
+            $('<h2 class="message">')
+                .appendTo(".navbar")
+                .text("Nice play! You won $" + win)
+                .css('color', 'green')
+                .fadeOut(3000);
+            newMatch();          
         } else if (player1Choice === player2Choice -1 || player1Choice === player2Choice + 1) {
             updatePlayerCash();
-            $('<h2 class="message">').appendTo(".intro-body").text("Almost! You will keep your bet.").css('color', 'orange');
-            showResults(); 
-            // alert("Computer choice was: " + player1Choice + ". Your choice was: " + player2Choice + ". Almost! You will keep your bet. Your cash is now $" + playerCash);
+            $('<h2 class="message">')
+                .appendTo(".navbar")
+                .text("Almost! You will keep your bet.")
+                .css('color', 'orange')
+                .fadeOut(3000);
+            newMatch(); 
         } else {
             var lost = playerBet;
             playerCash = playerCash - playerBet;
             updatePlayerCash();
-            $('<h2 class="message">').appendTo(".intro-body").text("Wrong choice. You have lost $" + playerBet).css('color', 'red');
-            showResults(); 
-            // alert("Computer choice was: " + player1Choice + ". Your choice was: " + player2Choice + ". You have lost your bet! Your cash is now $" + playerCash);
+            $('<h2 class="message">')
+                .appendTo(".navbar")
+                .text("Wrong choice. You have lost $" + playerBet)
+                .css('color', 'red')
+                .fadeOut(3000);
+            newMatch(); 
         }
     }
 
-    var match = function() {
-        compareResults(computerChoice, playerChoice); 
-    }
-
+    //Check if user clicked on the Start Game button
     $('.brand-heading').on('click', function() {
         $(this).hide();
         $('.btn-circle').hide();
@@ -52,6 +59,7 @@ $(function() {
         $('.score-label').show();
     });
 
+    //Check if user clicked on the Bet button and if the play is allowed
     $('.btn-bet').on('click', function() {
         if (playerCash > 0) {
             playerBet = $(this).data("bet");
@@ -65,15 +73,19 @@ $(function() {
             $('.bet-label').hide();
             $('.score-label').hide();
             $('.brand-heading').show();
+            playerCash = 100;
         }
     });
 
+    //Check if user clicked on the Guess Number button and start the comparisons
     $('.btn-guess').on('click', function() {
         playerChoice = $(this).data("guess");
         computerChoice = Math.ceil(Math.random()*10);
-        match();
+        $(".message").remove();
+        compareResults(computerChoice, playerChoice);         
     });
 
+    //Gradually scroll the page to section selected
     $('a.page-scroll').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
