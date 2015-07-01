@@ -8,7 +8,9 @@ $(function() {
         event.preventDefault();
     });
     $('.brand-heading').on('click', function() {
-        $(this).fadeout();
+        $(this).hide();
+        $('.bet-label').show();
+        $('.btn-bet').show();
     });
 });
 
