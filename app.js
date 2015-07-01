@@ -74,6 +74,7 @@ $(function() {
             $('.score-label').hide();
             $('.brand-heading').show();
             playerCash = 100;
+            updatePlayerCash();
         }
     });
 
@@ -83,15 +84,6 @@ $(function() {
         computerChoice = Math.ceil(Math.random()*10);
         $(".message").remove();
         compareResults(computerChoice, playerChoice);         
-    });
-
-    //Gradually scroll the page to section selected
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
     });
 
 });
