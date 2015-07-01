@@ -4,10 +4,8 @@
   <title>Betting Game</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./css/main.css">
-
   <!-- Custom Fonts -->
   <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -42,6 +40,7 @@
     </div>
     <!-- /.container -->
   </nav>
+  <!-- / Navigation -->
   <!-- Header -->
   <header class="intro">
     <div class="intro-body">
@@ -65,18 +64,6 @@
             </div>  
           </div>   
           <!-- /Bet Options -->
-          <!-- Player Score -->
-          <div class="col-md-8 col-md-offset-2">
-            <h1 class="score-label">You have <span class="money">$ 100 left!</span></h1>
-            <div class="col-md-8 col-md-offset-2">
-              <a href="#" class="btn-next-round">Next Round</a>
-            </div>
-            <div class="col-md-8 col-md-offset-2">
-              <a href="#" class="btn-play-again">Play Again</a>
-            </div>  
-          </div>   
-          <!-- /Player Score -->
-
         </div>
         <!-- Choose Numbers -->
         <h1 class="number-label">Choose your number:</h1>
@@ -91,7 +78,13 @@
           <div class="col-xs-4 col-sm-2 col-md-1"><a data-guess="8" href="#" class="btn-guess">8</a></div>
           <div class="col-xs-4 col-sm-2 col-md-1"><a data-guess="9" href="#" class="btn-guess">9</a></div>
           <div class="col-xs-4 col-sm-2 col-md-1"><a data-guess="10" href="#" class="btn-guess">10</a></div>
-        </div>      
+        </div>  
+        <!-- Player Score -->
+        <div class="score col-md-8 col-md-offset-2">
+          <br>
+          <h1 class="score-label">You have $ <span class="money">100</span> left!</h1> 
+        </div>   
+        <!-- /Player Score -->    
       </div>
     </div>
   </header>

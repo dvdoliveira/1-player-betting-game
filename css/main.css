@@ -167,7 +167,7 @@ a:focus {
   top: 0;
   width: 100%;
   height: auto;
-  opacity: 0.2;
+  opacity: 0.3;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
@@ -181,7 +181,6 @@ a:focus {
 .intro .intro-body .brand-heading {
   font-size: 40px;
   border: 1px solid white;
-/*  display: none;*/
 }
 
 .intro .intro-body .brand-heading:hover {
@@ -224,38 +223,9 @@ a:focus {
   display: none;
 }
 
-.intro .intro-body .winner-label {
-  text-align: center;
-}
-
-.intro .intro-body .looser-label {
-  text-align: center;
-}
-
 .intro .intro-body .score-label {
+  padding-top: 40px;
   text-align: center;
-  display: none;
-}
-
-.intro .intro-body .btn-next-round {
-  font-size: 18px;
-  font-weight: 600;
-  color: #000;
-  background-color: #fff;
-  border: 1px solid white;
-  width: 100%;
-  padding: 10px 40px 10px 40px;
-  display: none;
-}
-
-.intro .intro-body .btn-play-again {
-  font-size: 18px;
-  font-weight: 600;
-  color: #000;
-  background-color: #fff;
-  border: 1px solid white;
-  width: 100%;
-  padding: 10px 40px 10px 40px;
   display: none;
 }
 
