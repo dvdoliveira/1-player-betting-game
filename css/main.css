@@ -224,6 +224,41 @@ a:focus {
   display: none;
 }
 
+.intro .intro-body .winner-label {
+  text-align: center;
+}
+
+.intro .intro-body .looser-label {
+  text-align: center;
+}
+
+.intro .intro-body .score-label {
+  text-align: center;
+  display: none;
+}
+
+.intro .intro-body .btn-next-round {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid white;
+  width: 100%;
+  padding: 10px 40px 10px 40px;
+  display: none;
+}
+
+.intro .intro-body .btn-play-again {
+  font-size: 18px;
+  font-weight: 600;
+  color: #000;
+  background-color: #fff;
+  border: 1px solid white;
+  width: 100%;
+  padding: 10px 40px 10px 40px;
+  display: none;
+}
+
 @media(min-width:768px) {
   .intro {
     height: 100%;
