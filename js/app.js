@@ -23,28 +23,25 @@ $(function() {
             var win = playerBet * 2;
             playerCash = playerCash + win;
             updatePlayerCash();
-            $('<h2 class="message">')
+            $('<h2 class="message message-right-guess">')
                 .appendTo(".navbar")
                 .text("Nice play! You won $" + win)
-                .css('color', 'green')
                 .fadeOut(3000);
             newMatch();          
         } else if (player1Choice === player2Choice -1 || player1Choice === player2Choice + 1) {
             updatePlayerCash();
-            $('<h2 class="message">')
+            $('<h2 class="message message-close-guess">')
                 .appendTo(".navbar")
                 .text("Almost! You will keep your bet.")
-                .css('color', 'orange')
                 .fadeOut(3000);
             newMatch(); 
         } else {
             var lost = playerBet;
             playerCash = playerCash - playerBet;
             updatePlayerCash();
-            $('<h2 class="message">')
+            $('<h2 class="message message-wrong-guess">')
                 .appendTo(".navbar")
                 .text("Wrong choice. You have lost $" + playerBet)
-                .css('color', 'red')
                 .fadeOut(3000);
             newMatch(); 
         }

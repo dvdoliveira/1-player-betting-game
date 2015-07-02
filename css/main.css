@@ -136,6 +136,18 @@ a:focus {
   text-align: center;
 }
 
+.message-right-guess {
+  color: green;
+}
+
+.message-close-guess {
+  color: orange;
+}
+
+.message-wrong-guess {
+  color: red;
+}
+
 @media(min-width:768px) {
   .navbar-custom {
     padding: 20px 0;
